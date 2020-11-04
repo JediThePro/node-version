@@ -1,0 +1,49 @@
+{
+  "name": "nodeversion",
+  "version": "1.0.0",
+  "description": "Get Node current version",
+  "author": {
+    "name": "Pasit Sakorn",
+    "email": "pasit.sakorn@gmail.com"
+  },
+  "license": "MIT",
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
+  "main": "./index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JediThePro/nodeversion.git"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "keywords": [
+    "node",
+    "version"
+  ],
+  "scripts": {
+    "eslint": "eslint index.js || true",
+    "pretest": "npm run eslint",
+    "test": "jest",
+    "release-patch": "npm version patch -m 'Bump %s' && git push --tags origin HEAD:master",
+    "release-minor": "npm version minor -m 'Bump %s' && git push --tags origin HEAD:master",
+    "release-major": "npm version major -m 'Bump %s' && git push --tags origin HEAD:master",
+    "publish-latest": "npm publish",
+    "publish-beta": "npm publish --tag beta"
+  },
+  "devDependencies": {
+    "codecov": "3.8.0",
+    "eslint": "7.12.1",
+    "jest": "26.6.1"
+  },
+  "jest": {
+    "notify": true,
+    "verbose": true,
+    "testEnvironment": "node",
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true,
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      ".history"
+    ]
+  }
+}
